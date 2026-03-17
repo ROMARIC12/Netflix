@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 
 // L'URL de votre API Backend pour interagir avec MongoDB.
 // Elle a été mise à jour pour correspondre à la route que nous avons ajoutée dans le backend.
-const BACKEND_API_URL = "http://localhost:5000/api/user/actions";
+const BACKEND_API_URL = "https://netflixback-go5x.onrender.com/api/user/actions";
 
 const CardList = ({ title, category }) => {
   const [data, setData] = useState([]);
