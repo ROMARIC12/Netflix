@@ -21,7 +21,7 @@ const LikedMovies = () => {
       setError(null);
       try {
         // L'URL a été corrigée pour correspondre à la route de votre serveur
-        const response = await fetch(`http://localhost:5000/api/user/liked/${user.email}`);
+        const response = await fetch(`https://netflixback-go5x.onrender.com/api/user/liked/${user.email}`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch liked movies.');
