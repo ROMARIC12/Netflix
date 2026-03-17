@@ -8,7 +8,7 @@ import Hls from 'hls.js';
 import { useAuthStore } from "../store/authStore.js";
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://netflixback-go5x.onrender.com/api";
 
 export default function Player() {
   const navigate = useNavigate();
