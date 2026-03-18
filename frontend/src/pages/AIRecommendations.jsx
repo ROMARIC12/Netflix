@@ -164,50 +164,60 @@ Recommend 10 ${inputs.mood.toLowerCase()} ${
           </div>
 
           <div className="w-full flex flex-col flex-1">
-            <div className="mb-6 flex-1">
-              <h3 className=" text-lg font-semibold text-white mb-6 text-center">
-                {steps[step].label}
-              </h3>
-
-              <div className="grid grid-cols-1 gap-3">
-                {steps[step].options.map((opt) => (
-                  <button
-                    key={opt}
-                    onClick={() => handleOption(opt)}
-                    className={`w-full py-3 rounded-xl border-2 transition font-semibold text-base flex items-center justify-center gap-2 focus:outline-none focus:ring-2 active:scale-95 duration-150 focus:ring-[#e50914] shadow-sm ${
-                      inputs[steps[step].name] == opt
-                        ? "bg-[#e50914] border-[#e50914] text-white shadow-lg"
-                        : "bg-[#232323] border-[#444] text-white hover:bg-[#e50914]/80 hover:border-[#e50914]"
-                    }`}
-                  >
-                    {opt}
-                  </button>
-                ))}
+            {isLoading ? (
+              // Affichage du spinner de chargement pendant la génération des recommandations
+              <div className="flex flex-col items-center justify-center py-10">
+                <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#e50914]"></div>
+                <p className="text-white mt-4">Veuillez patienter...</p>
               </div>
-            </div>
+            ) : (
+              <>
+                <div className="mb-6 flex-1">
+                  <h3 className=" text-lg font-semibold text-white mb-6 text-center">
+                    {steps[step].label}
+                  </h3>
 
-            <div className="flex justify-between items-center mt-6">
-              <button
-                type="button"
-                onClick={handleBack}
-                disabled={step == 0}
-                className="px-6 py-2 rounded-lg font-semibold transition border-2 border-[#444] text-white bg-[#181818] hover:bg-[#232323]"
-              >
-                Retour
-              </button>
-              <button
-                type="button"
-                onClick={
-                  step === steps.length - 1
-                    ? generateRecommendations
-                    : handleNext
-                }
-                disabled={!inputs[steps[step].name] || isLoading}
-                className="px-6 py-2 rounded-lg font-semibold transition border-2 border-[#e50914] text-white bg-[#e50914] hover:bg-[#b0060f] ml-2"
-              >
-                {step === steps.length - 1 ? "Terminer" : "Suivant"}
-              </button>
-            </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {steps[step].options.map((opt) => (
+                      <button
+                        key={opt}
+                        onClick={() => handleOption(opt)}
+                        className={`w-full py-3 rounded-xl border-2 transition font-semibold text-base flex items-center justify-center gap-2 focus:outline-none focus:ring-2 active:scale-95 duration-150 focus:ring-[#e50914] shadow-sm ${
+                          inputs[steps[step].name] == opt
+                            ? "bg-[#e50914] border-[#e50914] text-white shadow-lg"
+                            : "bg-[#232323] border-[#444] text-white hover:bg-[#e50914]/80 hover:border-[#e50914]"
+                        }`}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center mt-6">
+                  <button
+                    type="button"
+                    onClick={handleBack}
+                    disabled={step == 0}
+                    className="px-6 py-2 rounded-lg font-semibold transition border-2 border-[#444] text-white bg-[#181818] hover:bg-[#232323]"
+                  >
+                    Retour
+                  </button>
+                  <button
+                    type="button"
+                    onClick={
+                      step === steps.length - 1
+                        ? generateRecommendations
+                        : handleNext
+                    }
+                    disabled={!inputs[steps[step].name] || isLoading}
+                    className="px-6 py-2 rounded-lg font-semibold transition border-2 border-[#e50914] text-white bg-[#e50914] hover:bg-[#b0060f] ml-2"
+                  >
+                    {step === steps.length - 1 ? "Terminer" : "Suivant"}
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
