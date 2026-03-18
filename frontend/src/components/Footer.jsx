@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="py-20">
         <p>Devellopé par ROMARIC</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid exercitationem ipsum repudiandae ullam ut iusto corrupti. Animi sed veritatis minima numquam, doloribus quisquam eaque, modi illum hic alias nemo perferendis?.
+          Projet realisé lors d'un TP
         </p>
       </div>
       <p className="pb-5">Questions? Contactez-nous.</p>
