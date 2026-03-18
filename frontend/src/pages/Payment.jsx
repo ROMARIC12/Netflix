@@ -48,7 +48,6 @@ const Payment = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-4">
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
         <h1 className="text-3xl font-bold mb-4">Abonnement Premium</h1>
-        <p className="text-xl mb-6 text-gray-400">999 fcfa / mois</p>
         <p className="text-gray-400 mb-8">
           Accédez à des films et séries exclusifs, sans publicité.
         </p>
